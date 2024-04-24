@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useState, useRef } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Cta from "@/components/Cta";
@@ -10,7 +11,8 @@ import Navbar from "@/components/Navbar";
 import Student from "@/components/Student";
 import Teacher from "@/components/Teachers";
 import Values from "@/components/Values";
-import { useEffect, useState, useRef } from "react";
+import { BsArrowUp } from "react-icons/bs";
+import { useSpring, animated } from "react-spring";
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
@@ -38,6 +40,13 @@ export default function Home() {
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
+  const springProps = useSpring({
+    loop: { reverse: true },
+    to: { scale: isVisible ? 1.2 : 1 },
+    from: { scale: 1 },
+    config: { tension: 200, friction: 20 },
+  });
+
   return (
     <div>
       <Head>
@@ -59,12 +68,13 @@ export default function Home() {
       <Footer />
 
       {isVisible && (
-        <button
+        <animated.button
           onClick={scrollToTop}
-          className="fixed bottom-2 right-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          className="fixed bottom-20 right-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded-full flex items-center justify-center"
+          style={springProps}
         >
-          Go to Top
-        </button>
+          <BsArrowUp size={24} />
+        </animated.button>
       )}
     </div>
   );
