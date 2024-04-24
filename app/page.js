@@ -10,7 +10,7 @@ import Navbar from "@/components/Navbar";
 import Student from "@/components/Student";
 import Teacher from "@/components/Teachers";
 import Values from "@/components/Values";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
@@ -57,15 +57,15 @@ export default function Home() {
       <MoreInfoModal />
       <Cta />
       <Footer />
+
+      {isVisible && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-2 right-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        >
+          Go to Top
+        </button>
+      )}
     </div>
   );
 }
-
-// {isVisible && (
-//   <button
-//     onClick={scrollToTop}
-//     className="fixed bottom-2 right-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-//   >
-//     Go to Top
-//   </button>
-// )}

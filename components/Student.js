@@ -38,7 +38,7 @@ const Student = () => {
   };
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto" id="student">
       <div className="text-left">
         <p className="text-base lg:text-xl font-medium text-gray-500 uppercase">
           Top Studying

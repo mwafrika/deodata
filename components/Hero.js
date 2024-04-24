@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 
 const Hero = () => {
   return (
-    <div className="container mx-auto my-10">
+    <div className="container mx-auto my-10" id="aboutUs">
       <div className="bg-[#fff5f1] px-6 lg:px-16 py-10 rounded-3xl">
         <Navbar />
         <div className="flex flex-col lg:flex-row justify-center lg:justify-between items-center gap-5">

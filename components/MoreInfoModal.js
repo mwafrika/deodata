@@ -31,7 +31,7 @@ const MoreInfoModal = () => {
   ];
 
   return (
-    <div className="container mx-auto py-20">
+    <div className="container mx-auto py-20" id="careers">
       <p className="text-gray-500 text-2xl font-medium uppercase my-3">
         MORE INFO
       </p>
